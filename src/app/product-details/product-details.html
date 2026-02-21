@@ -1,1 +1,23 @@
-<p>product-details works!</p>
+<li class="product-item">
+        <div class="product">
+          <div class="product-details">
+            <img [src]="getImageName(product)" alt="" />
+            <div class="product-info">
+              <div class="name">{{ product.name }}</div>
+              <div class="description">{{ product.description }}</div>
+              <div class="category">Part Type: {{ product.category }}</div>
+            </div>
+          </div>
+          <div class="price">
+          
+              <div [ngClass]="{strikethrough: product.discount > 0}">${{product.price}}</div>
+          
+            @if (product.discount > 0) {
+              <div class="discount">
+                {{ (product.price * (1 - product.discount)).toFixed(2) }}
+              </div>
+            }
+            <button class="cta" (click) = "buyMe()">Buy</button>
+          </div>
+        </div>
+      </li>
