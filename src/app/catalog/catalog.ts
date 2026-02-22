@@ -26,7 +26,7 @@ export class Catalog  implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-        this.filter = params['category'];
+        this.filter = params['category'] ?? 'null';
     });
   }
 
